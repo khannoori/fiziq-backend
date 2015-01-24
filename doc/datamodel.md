@@ -1,6 +1,4 @@
-# Technical Documentation
-
-## Datamodel
+# Datamodel
 The following diagram presents the datamodel behind the Fiziq app.
 
 ![Fiziq Datamodel](fiziq_datamodel.png)
