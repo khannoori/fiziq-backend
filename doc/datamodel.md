@@ -10,13 +10,14 @@ This concept represents any end-user of the app and does not need to be
 ellaborated. A user has a [TrainingJournal](#TrainingJournal).
 
 
-| Property Name | Type         | Remarks                                    |
-|----------------------|:-------------:|-------------------------------------------|
-| name                | `string`      |                                                    |
-| email                | `string`      |                                                    |
-| createdAt         | `datetime` |                                                    |
-| updatedAt        | `datetime` |                                                    |
-| TrainingJournal        | `TrainingJournal` |                                                    |
+| Property Name        | Type              | Remarks                         |
+|----------------------|:-----------------:|---------------------------------|
+| name                 | `string`          |                                 |
+| email                | `string`          |                                 |
+| createdAt            | `datetime`        |                                 |
+| updatedAt            | `datetime`        |                                 |
+| TrainingJournal      | `TrainingJournal` |                                 |
+
 
 ### TrainingJournal
 This concept represents the log over all trainings sessions performed by a user.
