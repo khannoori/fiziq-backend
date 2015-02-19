@@ -9,7 +9,8 @@ In the following, the concepts presented in the above diagram are ellaborated.
 This concept represents any end-user of the app and does not need to be
 ellaborated. A user has a [TrainingJournal](#TrainingJournal).
 
-User has the following properties:
+`User` has the following properties:
+
 | Property Name        | Type              | Remarks                         |
 |----------------------|:-----------------:|---------------------------------|
 | name                 | `string`          |                                 |
@@ -22,7 +23,8 @@ User has the following properties:
 ### TrainingJournal
 This concept represents the log over all trainings sessions performed by a user.
 
-TrainingJournal has the following properties:
+`TrainingJournal` has the following properties:
+
 | Property Name        | Type          | Remarks                             |
 |----------------------|:-------------:|-------------------------------------|
 | createdAt            | `datetime`    |                                     |
@@ -33,7 +35,8 @@ TrainingJournal has the following properties:
 This concept represents a period of time where a number of physiqual exercises
 are performed by a person.
 
-WorkoutSession has the following properties:
+`WorkoutSession` has the following properties:
+
 | Property Name        | Type             | Remarks                          |
 |----------------------|:----------------:|----------------------------------|
 | name                 | `string`         |                                  |
@@ -44,7 +47,8 @@ WorkoutSession has the following properties:
 This concept consists of a workout/exercise, the number of time it is repeated
 and the weights/intensity used to perform it each time.
 
-WorkSet has the following properties
+`WorkoutSet` has the following properties:
+
 | Property Name        | Type             | Remarks                          |
 |----------------------|:----------------:|----------------------------------|
 | name                 | `string`         |                                  |
@@ -56,7 +60,8 @@ WorkSet has the following properties
 This concept represents a physiqual exercise that targets one or multiple
 muscle groups and can be performed by a person.
 
-Workout has the following properties
+`Workout` has the following properties:
+
 | Property Name        | Type          | Remarks                             |
 |----------------------|:-------------:|-------------------------------------|
 | name                 | `string`      |                                     |
@@ -64,6 +69,7 @@ Workout has the following properties
 
 ### MuscleGroup
 There are 7 major muscle groups that all workouts are divided into:
+
 1. Chest
 2. Shoulders
 3. Back
@@ -72,7 +78,8 @@ There are 7 major muscle groups that all workouts are divided into:
 6. Legs
 7. Abs
 
-MuscleGroup has the following properties
+`MuscleGroup` has the following properties:
+
 | Property Name        | Type          | Remarks                             |
 |----------------------|:-------------:|-------------------------------------|
 | name                 | `string`      |                                     |
