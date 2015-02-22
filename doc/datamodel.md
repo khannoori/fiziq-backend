@@ -52,10 +52,10 @@ and the weights/intensity used to perform it each time.
 
 | Property Name        | Type             | Remarks                          |
 |----------------------|:----------------:|----------------------------------|
-| name                 | `string`         |                                  |
-| Repetition           | `int`            |                                  |
-| Weight               | `float`          |                                  |
+| repetitions          | `int`            |                                  |
+| weight               | `float`          |                                  |
 | workoutSession       | `WorkoutSession` |                                  |
+
 
 ### Workout
 This concept represents a physiqual exercise that targets one or multiple
@@ -65,8 +65,11 @@ muscle groups and can be performed by a person.
 
 | Property Name        | Type          | Remarks                             |
 |----------------------|:-------------:|-------------------------------------|
-| name                 | `string`      |                                     |
+| names                | `string[]`    | A workout can have many aliases     |
+| description          | `string`      |                                     |
+| images               | `string[]`    | Paths to images                     |
 | muscleGroup          | `MuscleGroup` |                                     |
+
 
 ### MuscleGroup
 There are 7 major muscle groups that all workouts are divided into:

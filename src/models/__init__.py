@@ -12,6 +12,27 @@ APPLICATION_ID = os.environ['APPLICATION_ID']
 USER_KEY = ndb.Key("User", 'root', app=APPLICATION_ID)
 TRAINING_JOURNAL_KEY = ndb.Key("TrainingJournal", 'root', app=APPLICATION_ID)
 WORKOUT_SESSION_KEY = ndb.Key("WorkoutSession", 'root', app=APPLICATION_ID)
+WORKOUT_SET_KEY = ndb.Key("WorkoutSet", 'root', app=APPLICATION_ID)
+WORKOUT_KEY = ndb.Key("Workout", 'root', app=APPLICATION_ID)
+
+
+class MuscleGroup(object):
+    """
+    Enumeration that enumerates the 7 major muscle groups
+    """
+    CHEST = 1
+    SHOULDERS = 2
+    BACK = 3
+    BICEPS = 4
+    TRICEPS = 5
+    LEGS = 6
+    ABS = 7
+
+
+    @classmethod
+    def values(cls):
+        return [1, 2, 3, 4, 5, 6, 7]
+
 
 class User(ndb.Model):
     """
@@ -41,4 +62,25 @@ class WorkoutSession(ndb.Model):
     started_at = ndb.DateTimeProperty()
     ended_at = ndb.DateTimeProperty()
     training_journal = ndb.KeyProperty(kind='TrainingJournal')
+
     
+class WorkoutSet(ndb.Model):
+    """
+    Representation of a workout set, i.e. repetitions
+    of a specific workout with a specific weight
+    """
+    repetitions = ndb.IntegerProperty()
+    weight = ndb.FloatProperty()
+    workout_session = ndb.KeyProperty(kind='WorkoutSession')
+    workout = ndb.KeyProperty(kind='Workout')
+
+
+class Workout(ndb.Model):
+    """
+    Representation of a physicual exercise targetting one or 
+    more muscle groups
+    """
+    names = ndb.StringProperty(repeated=True)
+    muscle_group = ndb.IntegerProperty(choices=MuscleGroup.values(), required=True)
+    description = ndb.StringProperty()
+    images = ndb.StringProperty(repeated=True)

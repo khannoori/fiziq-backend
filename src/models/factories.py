@@ -50,3 +50,35 @@ class ModelFactory(object):
         workout_session.training_journal = training_journal.key
         
         return workout_session
+
+
+    @classmethod
+    def create_workout_set(cls, repetitions, weight, workout_session, workout):
+        """
+        Factory method for creating WorkoutSet entity.
+
+        NOTE: you must explicitly call the put() method
+        """
+        workout_set = models.WorkoutSet(parent=models.WORKOUT_SET_KEY)
+        workout_set.repetitions = repetitions
+        workout_set.weight = weight
+        workout_set.workout_set = workout_session.key
+        workout_set.workout = workout.key
+        
+        return workout_set
+
+
+    @classmethod
+    def create_workout(cls, muscle_group, names=[], description='', images=[]):
+        """
+        Factory method for creating WorkoutSet entity.
+
+        NOTE: you must explicitly call the put() method
+        """
+        workout = models.Workout(parent=models.WORKOUT_KEY)
+        workout.names = names
+        workout.muscle_group = muscle_group
+        workout.description = description
+        workout.images = images
+        
+        return workout
