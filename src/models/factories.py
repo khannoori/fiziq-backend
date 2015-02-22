@@ -35,3 +35,18 @@ class ModelFactory(object):
         NOTE: you must explicitly call the put() method
         """
         return models.TrainingJournal(parent=models.TRAINING_JOURNAL_KEY)
+
+
+    @classmethod
+    def create_workout_session(cls, started_at, ended_at, training_journal):
+        """
+        Factory method for creating WorkoutSession entity.
+
+        NOTE: you must explicitly call the put() method
+        """
+        workout_session = models.WorkoutSession(parent=models.WORKOUT_SESSION_KEY)
+        workout_session.started_at = started_at
+        workout_session.ended_at = ended_at
+        workout_session.training_journal = training_journal.key
+        
+        return workout_session
