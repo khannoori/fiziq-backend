@@ -24,4 +24,4 @@ class TrainingJournal(ndb.Model):
     created_at = ndb.DateTimeProperty(auto_now_add=True)
 
     def get_user(self):
-        pass
+        return User.gql("WHERE training_journal = :1", self.key).get()

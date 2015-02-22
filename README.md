@@ -35,7 +35,7 @@ It is important to notice that the Datastore Viewer only presents those kinds th
 
 Another usefull feature of the admin application is the **Interactive Console** which lets you execute some python
 code within the context of your application. The following snippet demonstrates how one can add entities to the
-datastore through the Interactive Console. You can copy-&-past the code into the Interace Console and execute
+datastore through the Interactive Console. You can copy-&-past the code into the Interactive Console and execute
 it.
 
 ```Python
@@ -52,6 +52,25 @@ user.put()
 
 print 'You just stored some data in the Datastore!'
 ```
+
+However, the prefered way of doing what is shown above is to use the corresponding factory method for each
+model, e.g:
+
+```Python
+from models.factories import ModelFactory
+
+journal = ModelFactory.create_training_journal()
+journal.put()
+
+user = ModelFactory.create_user('Ismail Faizi', 'kanafghan@gmail.com', journal)
+user.put()
+
+print 'You just stored some data in the Datastore!'
+```
+
+## Google Python Style Guide
+Please follow [Google Python Style Guide](http://google-styleguide.googlecode.com/svn/trunk/pyguide.html)
+when writting code for this project.
 
 
 ## Technical Documentation
