@@ -73,5 +73,36 @@ Please follow [Google Python Style Guide](http://google-styleguide.googlecode.co
 when writting code for this project.
 
 
+## Tests
+The following section describes how to run and add tests to this project.
+
+### Running Tests
+In order to run the tests, you must first start your development web server. By visiting the following
+URL, you run all the tests and the result will be displayed using 
+[GAEUnit](https://code.google.com/p/gaeunit/) (Google App Engine Unit Test Framework).
+
+```
+http://localhost:8080/tests
+```
+
+You can also run a specific test case by specifying the python module name in the URL, e.g.:
+
+```
+http://localhost:8080/tests?name=test_factories
+```
+
+### Adding Tests
+In order to add new tests, you must create a test module for each module you want to test. These test
+modules must be created in the `tests` folder which is located in the `src` folder. When naming the 
+test modules, prefix the name of the module you want write tests for with `test_`, e.g. if you want
+to write tests for the `factories.py` module, then the test module should be called `test_factories.py`.
+
+When naming the test class use the CamelCase style and create the name by sufixing the name of 
+the class you want to test with `Test`, e.g. if you want to write tests for the `ModelFactory` class
+you should call the test class `ModelFactoryTest`.
+
+When naming the test methods use the snake_case style, e.g. `test_success()`. 
+
+
 ## Technical Documentation
 For technical documentation please click [here](doc/README.md).
