@@ -11,7 +11,7 @@ In order to get started, you must have the following installed on your system:
 Start the [development web server](https://cloud.google.com/appengine/docs/python/tools/devserver) as follows:
 
 ```bash
-$ ./dev_appserver.py /path/to/fiziq-backend/src
+$ dev_appserver.py /path/to/fiziq-backend/src
 ```
 
 This will start and run the development server where the application can be visited at:

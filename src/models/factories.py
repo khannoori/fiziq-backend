@@ -62,7 +62,7 @@ class ModelFactory(object):
         workout_set = models.WorkoutSet(parent=models.WORKOUT_SET_KEY)
         workout_set.repetitions = repetitions
         workout_set.weight = weight
-        workout_set.workout_set = workout_session.key
+        workout_set.workout_session = workout_session.key
         workout_set.workout = workout.key
         
         return workout_set
