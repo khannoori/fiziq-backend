@@ -2,11 +2,9 @@
 
 import webapp2
 
+from ui.home import HomePage
 
-class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('Fiziq backend')
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', HomePage)
 ], debug=True)
