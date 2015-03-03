@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <meta charset="UTF-8">
+        <title>Fiziq - {% block title %}Backend{% endblock %}</title>
+        <link type="text/css" rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" />
+        {% endblock %}
+    </head>
+    <body>
+        {% if logged_in and not authorized %}
+            <div class="container">
+                <div class="jumbotron">
+                    <h1>You are not authorized! :-(</h1>
+                    <p>
+                        Send an email to <strong>kanafghan at gmail dot com</strong> and request
+                        access.
+                    </p>
+                </div>
+            </div>
+        {% else %}
+            {% if not logged_in and not authorized %}
+                <div class="container">
+                    <div class="jumbotron">
+                        <h1>You must login! :-P</h1>
+                        <p>
+                            Use the link at the bottom of the page.
+                        </p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+
+        {% if logged_in and authorized %}
+            <nav class="navbar navbar-inverse">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Fiziq</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                        <ul class="nav navbar-nav">
+                            {% for page in pages %}
+                                <li class="{{ 'active' if page.is_active }}">
+                                    <a href="{{ page.route }}">{{ page.caption }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            {% if messages %}
+                <div id="messages" class="container">
+                    {% for msg in messages %}
+                        <div class="alert alert-{{ msg.get('type') }}">
+                            {{ msg.get('msg') }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div id="content" class="container">
+                {% block content %}{% endblock %}
+            </div>
+        {% endif %}
+
+        <div id="footer" class="container">
+            <p class="text-center">
+                &copy; Copyright Fiziq Team 2015. 
+                All rights are reserved. 
+                Authorized accessed only. 
+                <a href="{{ authorization_link|safe }}">{{ authorization_link_text }}</a>
+            </p>
+        </div>
+
+    </body>
+</html>
