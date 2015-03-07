@@ -24,7 +24,8 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 
 NAVIGATION = [
-    {'caption': 'Home', 'route': '/', 'is_active': True}
+    {'caption': 'Home', 'route': '/', 'is_active': True},
+    {'caption': 'Workouts', 'route': '/workouts', 'is_active': False}
 ]
 
 
@@ -96,7 +97,7 @@ class AbstractPage(webapp2.RequestHandler):
 
 
     def add_message(self, message, msg_type=MSG_TYPE_ERROR):
-        self.messages.append({'msg': message, 'type': msgType})
+        self.messages.append({'msg': message, 'type': msg_type})
 
 
     def clear_messages(self):
