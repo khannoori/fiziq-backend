@@ -1,3 +1,12 @@
 /workouts/set/create
 --------------------
-WIP
+**Mehtod**: `GET`
+
+# Request
+
+|     Parameter     |     Type     |   Required   |
+|-------------------|--------------|:------------:|
+|                   |              |              |
+
+
+# Response
