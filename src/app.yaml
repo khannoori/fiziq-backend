@@ -12,6 +12,8 @@ handlers:
   upload: favicon\.ico
 - url: /tests.*
   script: lib.gaeunit.gaeunit.tester
+- url: /_ah/spi/.*
+  script: api.application
 - url: .*
   script: main.app
 
@@ -22,3 +24,5 @@ libraries:
   version: "1.4"
 - name: jinja2
   version: latest
+- name: endpoints
+  version: 1.0
