@@ -31,3 +31,11 @@ On success this API endpoint returns the following response as JSON:
 The `user_key` parameter is the datastore key of the user which is required by
 every API endpoint that updates resources of a specific user. Thus, it should 
 be stored by the clients for subsequent requests.
+
+## Example
+
+```JSON
+{
+    "user_key": "ahFkZXZ-Zml6aXEtYmFja2VuZHIfCxIEVXNlciIEcm9vdAwLEgRVc2VyGICAgICAwL8JDA"
+}
+```
