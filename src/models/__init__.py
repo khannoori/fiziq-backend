@@ -77,7 +77,7 @@ class WorkoutSet(ndb.Model):
 
 class Workout(ndb.Model):
     """
-    Representation of a physicual exercise targetting one or 
+    Representation of a physical exercise targetting one or 
     more muscle groups
     """
     names = ndb.StringProperty(repeated=True)

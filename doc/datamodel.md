@@ -46,7 +46,8 @@ are performed by a person.
 
 ### WorkoutSet
 This concept consists of a workout/exercise, the number of time it is repeated
-and the weights/intensity used to perform it each time.
+and the weights/intensity used to perform it each time. Moreover, this concept
+belongs to a specific workout session.
 
 `WorkoutSet` has the following properties:
 
@@ -55,6 +56,7 @@ and the weights/intensity used to perform it each time.
 | repetitions          | `int`            |                                  |
 | weight               | `float`          |                                  |
 | workoutSession       | `WorkoutSession` |                                  |
+| workout              | `Workout`        |                                  |
 
 
 ### Workout

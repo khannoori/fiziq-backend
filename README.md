@@ -11,7 +11,7 @@ In order to get started, you must have the following installed on your system:
 Start the [development web server](https://cloud.google.com/appengine/docs/python/tools/devserver) as follows:
 
 ```bash
-$ ./dev_appserver.py /path/to/fiziq-backend/src
+$ dev_appserver.py /path/to/fiziq-backend/src
 ```
 
 This will start and run the development server where the application can be visited at:
@@ -102,6 +102,51 @@ the class you want to test with `Test`, e.g. if you want to write tests for the 
 you should call the test class `ModelFactoryTest`.
 
 When naming the test methods use the snake_case style, e.g. `test_success()`. 
+
+
+## Extending UI
+The Fiziq backend provides a mini UI framework to add pages with specific features/contents for administration
+purposes. This framework is based on the `jinja2` template engine.
+
+In order to add a page you must follow the following steps:
+
+### Add Page Handler
+The first step is to add the page handler which is the logic that handles request and response. The logic
+for initializing the template engine and injecting the template with values has been abstracted away using
+the `AbstractPage` class which is located in the `src/ui/common.py` file. You must extend this class and
+implement the `handle_post_request()` and `handle_get_request()` methods. In order to inject template
+variables into the template of the page, you can use the `add_template_value()` method. It is recommended 
+that you study the source code of the `AbstractPage` class.
+
+### Provide the Navigation
+In the `src/ui/common.py` file you find the `NAVIGATION` variable which is a list of python dictionaries.
+Each element of the list provides a navigation of a page, i.e. the menu caption of the page, the route of
+the page, and whether the page is the active page. In the following, an example is presented:
+
+```Python
+NAVIGATION = [
+    {'caption': 'Home', 'route': '/', 'is_active': True},
+    {'caption': 'Workouts', 'route': '/workouts', 'is_active': False},
+]
+```
+You must add the navigation of your page as shown above.
+
+### Add Page Template
+All the templates (the html files) of the various pages are found in `src/ui/views` folder. All the
+templates must extend the `base.html` template. For an example, see the `home.html` template.
+
+### Add Page Route
+You must extend the application in the `main.py` with the route and page handler of your page.
+For instance, if we were to add the `/foo` route with `FooPage` as handler, we will extend the 
+application as follows:
+
+```Python
+app = webapp.WSGIApplication([
+    ('/', HomePage),
+    ...
+    ('/foo', FooPage)
+], debug=True)
+```
 
 
 ## Technical Documentation
