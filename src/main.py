@@ -3,8 +3,10 @@
 import webapp2
 
 from ui.home import HomePage
+from ui.workouts import WorkoutsPage
 
 
 app = webapp2.WSGIApplication([
-    ('/', HomePage)
+    ('/', HomePage),
+    ('/workouts', WorkoutsPage)
 ], debug=True)

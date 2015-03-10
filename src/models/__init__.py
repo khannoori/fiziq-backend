@@ -34,6 +34,11 @@ class MuscleGroup(object):
         return [1, 2, 3, 4, 5, 6, 7]
 
 
+    @classmethod
+    def literals(cls):
+        return ['CHEST', 'SHOULDERS', 'BACK', 'BICEPS', 'TRICEPS', 'LEGS', 'ABS']
+
+
 class User(ndb.Model):
     """
     Representation of a user
@@ -83,4 +88,4 @@ class Workout(ndb.Model):
     names = ndb.StringProperty(repeated=True)
     muscle_group = ndb.IntegerProperty(choices=MuscleGroup.values(), required=True)
     description = ndb.StringProperty()
-    images = ndb.StringProperty(repeated=True)
+    images = ndb.BlobKeyProperty(repeated=True)
