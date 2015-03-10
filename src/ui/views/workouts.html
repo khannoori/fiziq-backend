@@ -1,0 +1,39 @@
+{% extends "views/base.html" %}
+{% block content %}
+    <h1>Workouts <small>Manage workouts</small></h1>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Add Workout</h2>
+            <form action="{{ form_url }}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="workout-names">Workout Names:</label>
+                    <input type="text" class="form-control" id="workout-names" name="names"
+                           placeholder="Enter workout names separated by a semicolon ';'">
+                </div>
+                <div class="form-group">
+                    <label for="muscle-group">Muscle Group:</label>
+                    <select class="form-control" id="muscle-group" name="muscle-group">
+                        <option value="0">-- Select One --</option>
+                        {% for mg in muscle_groups %}
+                            <option value="{{ loop.index }}">{{ mg|title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Desciption:</label>
+                    <textarea class="form-control" id="description" name="description" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image1">Image 1:</label>
+                    <input type="file" id="image1" name="image1">
+                </div>
+                <div class="form-group">
+                    <label for="image2">Image 2:</label>
+                    <input type="file" id="image2" name="image2">
+                </div>
+                <button type="submit" class="btn btn-default">Create</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

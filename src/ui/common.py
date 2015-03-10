@@ -24,7 +24,8 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 
 NAVIGATION = [
-    {'caption': 'Home', 'route': '/', 'is_active': True}
+    {'caption': 'Home', 'route': '/', 'is_active': True},
+    {'caption': 'Workouts', 'route': '/workouts', 'is_active': False}
 ]
 
 
@@ -90,13 +91,13 @@ class AbstractPage(webapp2.RequestHandler):
 
     def set_active_page(self, page):
         for n in NAVIGATION:
-            n['isActive'] = False
+            n['is_active'] = False
             if n['caption'].lower() == page.lower():
-                n['isActive'] = True
-    
+                n['is_active'] = True
+
 
     def add_message(self, message, msg_type=MSG_TYPE_ERROR):
-        self.messages.append({'msg': message, 'type': msgType})
+        self.messages.append({'msg': message, 'type': msg_type})
 
 
     def clear_messages(self):
