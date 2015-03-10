@@ -149,5 +149,26 @@ app = webapp.WSGIApplication([
 ```
 
 
+## API Development
+The Fiziq backend provides a number of API endpoints. These endpoints are documented [here](doc/api/README.md).
+The implementation of these endpoints are located in the `src/api` folder. You can use the Google APIs Explorer
+tool in order to test the API endpoints of Fiziq. It's possible both locally (on the development machine) and
+using the production environment.
+
+In your local environment, make sure that your development server is running, then access:
+
+```
+http://localhost:8080/_ah/api/explorer
+```
+
+assuming your development server is running on `http://localhost:8080`.
+
+Access the following URL in order to test the API on the production environment:
+
+```
+https://fiziq-backend.appspot.com/_ah/api/explorer
+```
+
+
 ## Technical Documentation
 For technical documentation please click [here](doc/README.md).
